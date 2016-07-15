@@ -1,0 +1,35 @@
+{
+  "name": "petshop-api",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "lint": "./node_modules/.bin/eslint .",
+    "dev": "./node_modules/.bin/nodemon --exec \"npm run lint && npm start\""
+  },
+  "author": "Jonathan Robic <hello@jonathanrobic.fr>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.7.1",
+    "express": "^4.14.0",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.5.4",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.0.1",
+    "eslint-config-airbnb-base": "^4.0.0",
+    "eslint-plugin-import": "^1.10.3",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.9.2",
+    "sinon": "^1.17.4",
+    "superagent": "^2.1.0"
+  }
+}
