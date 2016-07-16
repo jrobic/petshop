@@ -1,16 +1,18 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-const AnimalSchema = schema({
-  name: { type: String },
-  origin: { type: String },
+const animalSchema = schema({
+  name: { type: String, required: true },
+  origin: { type: String, required: true },
+  color: { type: String },
   avg_size: { type: Number, min: 0 },
   avg_life: { type: Number, min: 0 },
-  color: { type: String },
-  temperament: { type: String },
-  avg_price: { type: Number, min: 0 },
+  avg_weight: { type: Number, min: 0 },
+  avg_price: { type: Number, min: 0, required: true }
+}, {
+  timestamps: true
 });
 
-const AnimalModel = mongoose.model('Animal', AnimalSchema);
+const animalModel = mongoose.model('Animal', animalSchema);
 
-module.exports = AnimalModel;
+module.exports = animalModel;

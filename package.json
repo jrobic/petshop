@@ -7,10 +7,14 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "lint": "./node_modules/.bin/eslint .",
-    "dev": "./node_modules/.bin/nodemon --exec \"npm run lint && npm start\""
+    "test": "ENV=test ./node_modules/.bin/mocha tests",
+    "test-dev": "docker exec -it server_api_dev_1 npm run test",
+    "test-ci": "docker-compose -f docker-compose.yml run --rm api_dev npm run test",
+    "start": "docker-compose -f docker-compose.yml up",
+    "prod": "docker-compose -f docker-compose.prod.yml up",
+    "doc": "./node_modules/.bin/apidoc -i ./api -o doc/",
+    "lint": "./node_modules/.bin/eslint ./api",
+    "validate": "npm ls"
   },
   "author": "Jonathan Robic <hello@jonathanrobic.fr>",
   "license": "MIT",
@@ -23,13 +27,21 @@
     "morgan": "^1.7.0"
   },
   "devDependencies": {
+    "apidoc": "^0.16.1",
     "chai": "^3.5.0",
     "eslint": "^3.0.1",
     "eslint-config-airbnb-base": "^4.0.0",
     "eslint-plugin-import": "^1.10.3",
     "mocha": "^2.5.3",
     "nodemon": "^1.9.2",
+    "precommit-hook": "^3.0.0",
     "sinon": "^1.17.4",
-    "superagent": "^2.1.0"
-  }
+    "sinon-mongoose": "^1.2.1",
+    "supertest": "^1.2.0"
+  },
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test-ci"
+  ]
 }
