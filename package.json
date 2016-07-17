@@ -9,8 +9,8 @@
   "scripts": {
     "mocha": "./node_modules/.bin/mocha tests",
     "test-dev": "docker exec -it server_api_dev_1 bash -c 'ENV=test npm run mocha'",
-    "test-ci": "docker run -it api_dev bash -c 'ENV=circleci npm run mocha'",
     "test": "docker-compose -f docker-compose.yml run -e ENV=test --rm api_dev npm run mocha",
+    "test-ci": "docker-compose -f docker-compose.yml run -e ENV=cirlceci --rm api_dev npm run mocha",
     "start": "docker-compose -f docker-compose.yml up",
     "prod": "docker-compose -f docker-compose.prod.yml up",
     "doc": "./node_modules/.bin/apidoc -i ./api -o doc/",
