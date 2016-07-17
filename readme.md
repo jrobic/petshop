@@ -5,13 +5,13 @@ That app use Docker and Docker Compose
 # Run
 
 ```
-docker-compose up -d
+npm start
 ```
 
 or
 
 ```
-nodemon -x docker-compose up
+npm run prod
 ```
 
 Restart container when a files has changed.
@@ -19,5 +19,5 @@ Restart container when a files has changed.
 # Test
 
 ```
-docker exec -it server_web_1 npm run test
+npm run test-dev
 ```
