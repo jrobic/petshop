@@ -20,6 +20,7 @@ let animal;
 
 describe.only('Animal CRUD Tests', () => {
   before((done) => {
+    console.log(env);
     mongoose.connect(config[env].db);
     mongoose.connection.once('open', () => {
       mongoose.connection.db.dropDatabase(done);
