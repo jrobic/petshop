@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/jrobic/petshop-api/tree/master.svg?style=svg)](https://circleci.com/gh/jrobic/petshop-api/tree/master)<Paste>
+
 # Install
 
 That app use Docker and Docker Compose
