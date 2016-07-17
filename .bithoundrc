@@ -1,0 +1,16 @@
+{
+  "critics": {
+    "lint": {
+      "engine": "none"
+    },
+    "wc": {
+      "limit": 500
+    }
+  },
+  "ignore": [
+    "doc/**"
+  ],
+  "test": [
+    "tests/**"
+  ]
+}
