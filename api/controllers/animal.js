@@ -7,7 +7,7 @@ const helpers = require('../helpers');
  */
 const animalCtrl = (Animal) => {
   /**
-   * @api {get} /api/v1/animals Get All
+   * @api {get} /animals Get All
    * @apiVersion 0.1.0
    * @apiName getAll
    * @apiGroup Animal
@@ -71,7 +71,7 @@ const animalCtrl = (Animal) => {
   };
 
   /**
-   * @api {get} /api/v1/animals/:animalId Get
+   * @api {get} /animals/:animalId Get
    * @apiVersion 0.1.0
    * @apiName get
    * @apiGroup Animal
@@ -80,28 +80,30 @@ const animalCtrl = (Animal) => {
    * @apiExample Example usage:
    * curl -H "Content-Type: application/json" -i http://localhost:3000/api/v1/animals/578aae0ab1927a01003e2bcb
    *
-   * @apiSuccess {String} _id           Id of the Animal.
+   * @apiSuccess {String} id           Id of the Animal.
    * @apiSuccess {Date} created_at      Created date of the Animal.
    * @apiSuccess {Date} update_at       Updated date of the Animal.
    * @apiSuccess {String} name          Name of the Animal.
    * @apiSuccess {String} origin        Origin of the Animal.
    * @apiSuccess {String} color         Color of the Animal.
-   * @apiSuccess {Number} avg_size      Average size  of the Animal.
-   * @apiSuccess {Number} avg_weight    Average weight of the Animal.
-   * @apiSuccess {Number} avg_price     Average Price of the Animal.
+   * @apiSuccess {String} avgSize      Average size  of the Animal.
+   * @apiSuccess {String} avgWeight    Average weight of the Animal.
+   * @apiSuccess {String} avgLife     Average life of the Animal.
+   * @apiSuccess {String} avgPrice     Average price of the Animal.
    *
    * @apiSuccessExample Response (example):
    *     HTTP/1.1 200 OK
    *       {
-   *          "_id":"578aae0ab1927a01003e2bcb",
+   *          "id":"578aae0ab1927a01003e2bcb",
    *          "updatedAt":"2016-07-16T21:58:34.478Z",
    *          "createdAt":"2016-07-16T21:58:34.478Z",
    *          "name": "Labrador Retriever",
    *          "origin": "Great Britain",
    *          "color": "brown",
-   *          "avg_size": 57,
-   *          "avg_weight": 30,
-   *          "avg_price": 1200,
+   *          "avgSize": 57,
+   *          "avgWeight": 30,
+   *          "avgLife": 10,
+   *          "avgPrice": 1200,
    *          "links":{
    *            "self": "http://localhost:3000/api/v1/animals/578aae0ab1927a01003e2bcb"
    *          }
@@ -132,7 +134,7 @@ const animalCtrl = (Animal) => {
   };
 
   /**
-   * @api {post} /api/v1/animals Post
+   * @api {post} /animals Post
    * @apiVersion 0.1.0
    * @apiName post
    * @apiGroup Animal
@@ -151,20 +153,20 @@ const animalCtrl = (Animal) => {
    * @apiSuccess {String} name          Name of the Animal.
    * @apiSuccess {String} origin        Origin of the Animal.
    * @apiSuccess {String} color         Color of the Animal.
-   * @apiSuccess {Number} avg_size      Average size  of the Animal.
-   * @apiSuccess {Number} avg_weight    Average weight of the Animal.
-   * @apiSuccess {Number} avg_price     Average Price of the Animal.
+   * @apiSuccess {String} avgSize      Average size  of the Animal.
+   * @apiSuccess {String} avgWeight    Average weight of the Animal.
+   * @apiSuccess {String} avgLife     Average life of the Animal.
+   * @apiSuccess {String} avgPrice     Average price of the Animal.
    *
    * @apiSuccessExample Response (example):
    *     HTTP/1.1 201 Created
    *      {
-   *        "__v": 0,
    *        "updatedAt": "2016-07-17T11:20:41.461Z",
    *        "createdAt": "2016-07-17T11:20:41.461Z",
    *        "name": "Labrador Retriever",
    *        "origin": "Great Britain",
-   *        "avg_price": 1978,
-   *        "_id": "578b6a09feaf08a0008c1b3b"
+   *        "avgPrice": 1978,
+   *        "id": "578b6a09feaf08a0008c1b3b"
    *      }
    * @apiError (Error 400) {Object} error An error object contains status code and error message
    *
@@ -190,7 +192,7 @@ const animalCtrl = (Animal) => {
   };
 
   /**
-   * @api {put} /api/v1/animals/:animalId Put
+   * @api {put} /animals/:animalId Put
    * @apiVersion 0.1.0
    * @apiName put
    * @apiGroup Animal
@@ -209,20 +211,20 @@ const animalCtrl = (Animal) => {
    * @apiSuccess {String} name          Name of the Animal.
    * @apiSuccess {String} origin        Origin of the Animal.
    * @apiSuccess {String} color         Color of the Animal.
-   * @apiSuccess {Number} avg_size      Average size  of the Animal.
-   * @apiSuccess {Number} avg_weight    Average weight of the Animal.
-   * @apiSuccess {Number} avg_price     Average Price of the Animal.
+   * @apiSuccess {String} avgSize      Average size  of the Animal.
+   * @apiSuccess {String} avgWeight    Average weight of the Animal.
+   * @apiSuccess {String} avgLife     Average life of the Animal.
+   * @apiSuccess {String} avgPrice     Average price of the Animal.
    *
    * @apiSuccessExample Response (example):
    *     HTTP/1.1 200 Ok
    *      {
-   *        "__v": 0,
    *        "updatedAt": "2016-07-17T11:20:41.461Z",
    *        "createdAt": "2016-07-17T11:20:41.461Z",
    *        "name": "Labrador Retriever",
    *        "origin": "Great Britain",
-   *        "avg_price": 1978,
-   *        "_id": "578b6a09feaf08a0008c1b3b"
+   *        "avgPrice": 1978,
+   *        "id": "578b6a09feaf08a0008c1b3b"
    *      }
    *
    * @apiError (Error 404) {Object} error An error object contains status code and error message
@@ -267,7 +269,7 @@ const animalCtrl = (Animal) => {
   };
 
   /**
-   * @api {remove} /api/v1/animals/:animalId Delete
+   * @api {remove} /animals/:animalId Delete
    * @apiVersion 0.1.0
    * @apiName delete
    * @apiGroup Animal

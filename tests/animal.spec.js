@@ -61,7 +61,7 @@ describe.only('Animal CRUD Tests', () => {
 
   describe('POST /', () => {
     it('should save an animal', (done) => {
-      const newAnimal = { name: 'pedro', origin: 'argentine', avg_price: 1950 };
+      const newAnimal = { name: 'pedro', origin: 'argentine', avgPrice: 1950 };
 
       server
       .post('/api/v1/animals')
@@ -69,17 +69,17 @@ describe.only('Animal CRUD Tests', () => {
       .send(newAnimal)
       .expect(201)
       .expect((res) => {
-        expect(res.body).to.have.ownProperty('_id');
+        expect(res.body).to.have.ownProperty('id');
         expect(res.body).to.have.ownProperty('name');
         expect(res.body).to.have.ownProperty('origin');
-        expect(res.body).to.have.ownProperty('avg_price');
+        expect(res.body).to.have.ownProperty('avgPrice');
         animal = res.body;
       })
       .end(done);
     });
 
     it('should return an error when animal is not valid', (done) => {
-      const newAnimal = { origin: 'argentine', avg_price: 1950 };
+      const newAnimal = { origin: 'argentine', avgPrice: 1950 };
 
       server
       .post('/api/v1/animals')
@@ -96,17 +96,17 @@ describe.only('Animal CRUD Tests', () => {
 
   describe('GET /:animalId', () => {
     it('should return an animal', (done) => {
-      const id = animal._id;
+      const id = animal.id;
 
       server
       .get(`/api/v1/animals/${id}`)
       .expect(200)
       .expect((res) => {
-        expect(res.body).to.have.ownProperty('_id');
+        expect(res.body).to.have.ownProperty('id');
         expect(res.body).to.have.ownProperty('name');
         expect(res.body).to.have.ownProperty('origin');
-        expect(res.body).to.have.ownProperty('avg_price');
-        expect(res.body._id).to.equal(id);
+        expect(res.body).to.have.ownProperty('avgPrice');
+        expect(res.body.id).to.equal(id);
         expect(res.body.name).to.equal(animal.name);
         expect(res.body.origin).to.equal(animal.origin);
         expect(res.body.avg_price).to.equal(animal.avg_price);
@@ -133,7 +133,7 @@ describe.only('Animal CRUD Tests', () => {
       const updateAnimal = Object.assign(animal, { name: 'robert' });
 
       server
-      .put(`/api/v1/animals/${updateAnimal._id}`)
+      .put(`/api/v1/animals/${updateAnimal.id}`)
       .send(updateAnimal)
       .expect(200)
       .expect((res) => {
@@ -147,7 +147,7 @@ describe.only('Animal CRUD Tests', () => {
   describe('DELETE /:animalId', () => {
     it('should delete an animal', (done) => {
       server
-      .del(`/api/v1/animals/${animal._id}`)
+      .del(`/api/v1/animals/${animal.id}`)
       .expect(204)
       .end(() => {
         animal = null;
