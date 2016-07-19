@@ -5,8 +5,9 @@ mongo:
     - "27017:27017"
   volumes:
     - ./data:/data/db
-api_dev:
+apidev:
   build: "."
+  container_name: "apidev_1"
   command: ./node_modules/.bin/nodemon -L --debug=5858 ./server.js --color=always
   ports:
     - "3000:3000"

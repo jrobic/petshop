@@ -5,8 +5,9 @@ mongo:
     - "27017:27017"
   volumes:
     - ./data:/data/db
-api_ci:
+apici:
   build: "."
+  container_name: "apici1"
   command: node server.js
   ports:
     - "3000"

@@ -7,6 +7,7 @@ mongo:
     - ./data:/data/db
 api1:
   build: "."
+  container_name: "api1_1"
   command: node server.js
   ports:
     - "3000"
@@ -17,6 +18,7 @@ api1:
     - mongo
 api2:
   build: "."
+  container_name: "api2_1"
   command: node server.js
   ports:
     - "3000"
@@ -26,6 +28,7 @@ api2:
   links:
     - mongo
 api3:
+  container_name: "api3_1"
   build: "."
   command: node server.js
   ports:
