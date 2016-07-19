@@ -3,15 +3,27 @@
 [![bitHound Dependencies](https://www.bithound.io/github/jrobic/petshop-api/badges/dependencies.svg)](https://www.bithound.io/github/jrobic/petshop-api/master/dependencies/npm)
 [![bitHound Code](https://www.bithound.io/github/jrobic/petshop-api/badges/code.svg)](https://www.bithound.io/github/jrobic/petshop-api)
 
-# Install
+## Install
 
 That app use Docker and Docker Compose
 
-# Run
+**Required:**
+- docker: **1.10.3**
+- docker-compose: **1.6.2**
+
+```
+docker-compose -f docker-compose.yml build
+docker-compose -f docker-compose.ci.yml build
+docker-compose -f docker-compose.prod.yml build
+```
+
+## Run
 
 ```
 npm start
 ```
+
+Restart container when a files has changed.
 
 or
 
@@ -19,10 +31,37 @@ or
 npm run prod
 ```
 
-Restart container when a files has changed.
+## Doc
 
-# Test
+Api doc is available on http://host:port/api/v1
+
+## Test
 
 ```
 npm run test-dev
 ```
+Use this command with npm start (start in other terminal)
+
+or
+
+```
+npm run test-ci
+```
+Use this command when no container is running
+
+## Stack
+
+- ES6
+- Node 6
+- Express
+- Mongoose
+- ApiDocJs
+- Mocha
+- Chai
+- Sinon
+- Supertest
+- Docker
+- Docker-Compose
+- Circle-ci
+- Bithound
+- Eslint + airbnb rules
