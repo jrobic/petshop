@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const cors = require('cors');
 
 // Create new instance of express
 const app = express();
@@ -15,6 +16,7 @@ const env = process.env.ENV || 'development';
 if (env === 'development') app.use(morgan('dev')); // log every request to console
 app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
+app.use(cors());
 app.use(methodOverride());
 
 // Models
