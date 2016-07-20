@@ -23,7 +23,7 @@ docker-compose -f docker-compose.prod.yml build
 npm start
 ```
 
-Restart container when a files has changed.
+Restart container when a files has changed automatically.
 
 or
 
@@ -48,6 +48,11 @@ or
 npm run test-ci
 ```
 Use this command when no container is running
+
+## CI
+
+This repo was connected to Cirlce CI.
+(see ci badge)
 
 ## Stack
 
