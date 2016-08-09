@@ -1,6 +1,5 @@
 /* global describe it after before */
 /* eslint no-unused-expressions: 0  */
-const sinon = require('sinon');
 const chai = require('chai');
 const expect = chai.expect;
 const supertest = require('supertest');
@@ -56,7 +55,6 @@ describe.only('Animal CRUD Tests', () => {
       })
       .end(done);
     });
-
   });
 
   describe('POST /', () => {
@@ -157,10 +155,10 @@ describe.only('Animal CRUD Tests', () => {
   });
 
   after((done) => {
-      mongoose.models = {};
-      mongoose.modelSchemas = {};
-      mongoose.connection.close(() => {
-        done();
-      });
+    mongoose.models = {};
+    mongoose.modelSchemas = {};
+    mongoose.connection.close(() => {
+      done();
+    });
   });
 });
