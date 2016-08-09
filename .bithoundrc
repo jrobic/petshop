@@ -1,8 +1,5 @@
 {
   "critics": {
-    "lint": {
-      "engine": "none"
-    },
     "wc": {
       "limit": 500
     }
